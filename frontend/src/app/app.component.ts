@@ -22,7 +22,7 @@ export class AppComponent {
     familyName: new FormControl('', [Validators.required])
   })
 
-  async onSubmit($event: SubmitEvent) {
+  async onSubmit() {
     if (!this.form.valid) {
       alert('Error, form is invalid');
       return;
