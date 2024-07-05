@@ -5,12 +5,12 @@
         
         <p>You can find your booking by filling out your family name and the booking code in your booking confirmation
         </p>
-        <form>
+        <form (submit)="onSubmit($event)" [formGroup]="form">
             <label for="booking-code">Booking code</label>
-            <input id="booking-code" value="5fsdf5">
+            <input id="booking-code" [formControlName]="'bookingRef'">
 
             <label for="family-name">Family name</label>
-            <input id="family-name" value="Gaillard">
+            <input id="family-name" [formControlName]="'familyName'">
 
             <div class="button-container">
                 <button id="submit-button" type="submit">Retrieve booking</button>
