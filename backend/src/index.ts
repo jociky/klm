@@ -1,11 +1,13 @@
 import express from "express";
 import { BookingController } from "./controllers/booking.controller";
+import { HealthController } from "./controllers/health.controller";
 import { BookingService } from "./services/booking.service";
 
 const app = express();
 
 const bookingService = new BookingService();
 const bookingCtrl = new BookingController(express.Router(), bookingService);
+const healthCtrl = new HealthController(express.Router());
 
 app.use(express.json());
 
@@ -16,6 +18,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/booking', bookingCtrl.router);
+app.use('/api/health', healthCtrl.router);
 
 app.use((req, res) => {
     res.status(404);
