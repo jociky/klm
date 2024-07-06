@@ -12,14 +12,12 @@ import { BookingService } from './booking/booking.service';
   styleUrl: './app.component.less'
 })
 export class AppComponent {
-  title = 'frontend';
-
   constructor(private _bookSvc: BookingService) {
   }
 
   public form = new FormGroup({
-    bookingRef: new FormControl('', [Validators.required]),
-    familyName: new FormControl('', [Validators.required])
+    bookingRef: new FormControl('PZIGZ3', [Validators.required]),
+    familyName: new FormControl('HESP', [Validators.required])
   })
 
   async onSubmit() {
@@ -30,7 +28,7 @@ export class AppComponent {
 
     try {
       const result = await this._bookSvc.getBooking(this.form.value.bookingRef, this.form.value.familyName);
-      alert(result);
+      alert('Booking found correctly');
     } catch (ex: any) {
       alert(ex.message);
     }

@@ -10,9 +10,9 @@ export class BookingService {
 
     }
 
-    getBooking(bookingRef?: string | null, familyName?: string | null) {
-        return firstValueFrom(this._http.post('/api/bookings', {
-            bookingRef,
+    getBooking(bookingCode?: string | null, familyName?: string | null) {
+        return firstValueFrom(this._http.post('/api/booking/search', {
+            bookingCode,
             familyName
         }));    
     }
