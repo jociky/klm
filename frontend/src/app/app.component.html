@@ -1,17 +1,32 @@
 <div class="header">CHECK-IN</div>
 <div class="container-box">
     <div class="container">
-        <h1>Retrieve your booking <br/>-</h1>
-        
+        <h1>Retrieve your booking <br />-</h1>
+
+        <p class="notification-error" *ngIf="isError404">
+            We are unable to locate your booking.
+            Please check that you entered your booking reference or ticket number correctly and try again.
+            If we cannot recognize your booking reference please try again using your ticket number.
+            For flights operated by a different airline please go to that airline's website. [004.001]
+        </p>
+
+        <p class="notification-error" *ngIf="isError500">
+            An unexpected error occured, please try again later!
+        </p>
+
         <p>You can find your booking by filling out your family name and the booking code in your booking confirmation
         </p>
         <form (submit)="onSubmit()" [formGroup]="form">
-            <label for="booking-code">Booking code</label>
-            <input id="booking-code" [formControlName]="'bookingRef'">
-
-            <label for="family-name">Family name</label>
-            <input id="family-name" [formControlName]="'familyName'">
-
+            <div class="form-group">
+                <label for="booking-code">Booking code</label>
+                <input id="booking-code" [formControlName]="'bookingRef'" maxlength="6">
+                <span *ngIf="form.get('bookingRef')?.touched && form.get('bookingRef')?.invalid"  class="error-message">Field is required</span>
+            </div>
+            <div class="form-group">
+                <label for="family-name">Family name</label>
+                <input id="family-name" [formControlName]="'familyName'">
+                <span *ngIf="form.get('familyName')?.touched && form.get('familyName')?.invalid" class="error-message">Field is required</span>
+            </div>
             <div class="button-container">
                 <button id="submit-button" type="submit">Retrieve booking</button>
             </div>

@@ -3,7 +3,9 @@
     "type": "object",
     "properties": {
         "bookingCode": {
-            "type": "string"
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 6
         },
         "familyName": {
             "type": "string"
