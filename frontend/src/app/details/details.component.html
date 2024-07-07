@@ -1,1 +1,11 @@
-<pre>{{ booking | json }}</pre>
+<div>
+    <p>
+        Your booking is found, here are the details:
+    </p>
+
+    <label>Booking Code:</label> {{ booking.bookingCode }} <br />
+    <label>Passenger:</label> {{ booking.passengers.firstName }}, {{ booking.passengers.lastName }}<br />
+    <label>E-mail address:</label> {{ booking.contactDetails[0].address }} <br />
+    <label>Route: </label> {{ booking.itinerary.connections[0].origin.IATACode }} - {{
+    booking.itinerary.connections[0].destination.IATACode }}
+</div>
