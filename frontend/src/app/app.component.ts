@@ -40,11 +40,15 @@ export class AppComponent {
       alert('Booking found correctly');
     } catch (ex: any) {
       console.log(ex);
-      if (ex.status === 404) {
+
+      // it might be worthwhile to display backend validation errors here
+      // 400: request payload validation error
+      // 404: booking not found
+      if (ex.status === 404 || ex.status === 400) {
         this.isError404 = true;
       } else {
         // this also contains network error, etc
-        // it might be worthwhile to display backend validation errors here
+        
         this.isError500 = true;
       }
     }

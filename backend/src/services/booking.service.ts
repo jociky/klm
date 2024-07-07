@@ -18,7 +18,7 @@ export class BookingService {
     }
 
     getBooking(bookingCode: string, familyName: string): Booking | undefined {
-        if(this._data.bookingCode === bookingCode && this._data.passengers.lastName === familyName) {
+        if(this._data.bookingCode.toUpperCase() === bookingCode.toUpperCase() && this._data.passengers.lastName.toUpperCase() === familyName.toUpperCase()) {
             return this._data;
         }
     }

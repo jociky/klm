@@ -4,8 +4,7 @@
     "properties": {
         "bookingCode": {
             "type": "string",
-            "minLength": 6,
-            "maxLength": 6
+            "pattern": "^[A-Z0-9]{6}$"
         },
         "familyName": {
             "type": "string"
