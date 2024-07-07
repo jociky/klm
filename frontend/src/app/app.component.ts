@@ -16,8 +16,8 @@ export class AppComponent {
   constructor(private _bookSvc: BookingService) {
   }
 
-  public isError404: boolean = false;
-  public isError500: boolean = false;
+  public isError404 = false;
+  public isError500 = false;
 
   public form = new FormGroup({
     bookingRef: new FormControl('PZIGZ3', [Validators.required]),
@@ -34,8 +34,7 @@ export class AppComponent {
     }
 
     try {
-      const result = await this._bookSvc.getBooking(this.form.value.bookingRef, this.form.value.familyName);
-
+      await this._bookSvc.getBooking(this.form.value.bookingRef, this.form.value.familyName);
       // todo: add a new route to display data
       alert('Booking found correctly');
     } catch (ex: any) {

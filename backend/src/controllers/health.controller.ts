@@ -2,7 +2,7 @@ import express from "express"
 
 export class HealthController {
 
-    private _healthy: boolean = false;
+    private _healthy = false;
 
     constructor(public router: express.Router) {
         router.get('/', this.getHealth.bind(this));

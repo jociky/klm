@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "start": "nodemon src/index.ts",
-    "lint": "eslint .",
+    "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

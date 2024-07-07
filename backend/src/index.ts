@@ -27,10 +27,11 @@ app.use((req, res) => {
     });
 })
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/no-explicit-any
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-    console.error(err.stack)
-    res.status(500)
-    res.send('Internal server error')
+    console.error(err.stack);
+    res.status(500);
+    res.send('Internal server error');
 });
 
 // todo: make this configurable
