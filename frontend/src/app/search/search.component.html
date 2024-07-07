@@ -1,4 +1,6 @@
-<h1>Retrieve your booking <br />-</h1>
+<div class="container-header">
+    <h1>RETRIEVE YOUR BOOKING<br />—</h1>
+</div>
 
 <p class="notification-error" *ngIf="isError404">
     We are unable to locate your booking.
@@ -11,7 +13,7 @@
     An unexpected error occured, please try again later!
 </p>
 
-<p>You can find your booking by filling out your family name and the booking code in your booking confirmation
+<p>You can find your booking by filling out your family name and the booking code in your booking confirmation.
 </p>
 <form (submit)="onSubmit()" [formGroup]="form">
     <div class="form-group">
