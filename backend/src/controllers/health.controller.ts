@@ -1,21 +1,13 @@
 import express from "express"
+import { HealthService } from "../services/health.service";
 
 export class HealthController {
-
-    private _healthy = false;
-
-    constructor(public router: express.Router) {
+    constructor(public router: express.Router, private healthSvc: HealthService) {
         router.get('/', this.getHealth.bind(this));
-
-        // simulate a 10s startup time
-        setTimeout(() => {
-            console.log('App startup finished, setting healthy to true');
-            this._healthy = true;
-        }, 10000);
     }
 
     getHealth(req: express.Request, res: express.Response) {
-        if (this._healthy) {
+        if (this.healthSvc.isHealthy) {
             res.status(200);
         } else {
             res.status(500);
